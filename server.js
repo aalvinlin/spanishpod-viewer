@@ -5,11 +5,13 @@ const server = express();
 
 server.use(express.json());
 
+server.set("view engine", "pug");
+
 server.use("/", (req, res) => {
 
-    let { directories, files } = getFilesAndDirectories("./files");
+    let directoriesAndFiles = getFilesAndDirectories("./files");
 
-    res.status(200).send("SpanishPod101 File Viewer")
+    res.status(200).render("index", directoriesAndFiles);
 })
 
 module.exports = server;

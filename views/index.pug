@@ -1,0 +1,13 @@
+extends layout.pug 
+block content 
+
+    h2 Levels 
+
+    .directories
+        each directory in directories
+            div= directory
+    
+    h2 Files
+    .files
+        each file in files
+            div= file
