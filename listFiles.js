@@ -4,10 +4,20 @@ const fs = require('fs');
 
 const getFilesAndDirectories = (directory) => {
 
-    const test = fs.readdirSync(directory);
+    const contents = fs.readdirSync(directory);
 
-    const directories = test.filter(item => fs.lstatSync(path.resolve(directory, item)).isDirectory());
-    const files = test.filter(item => !fs.lstatSync(path.resolve(directory, item)).isDirectory());
+    const directories = [];
+    const files = [];
+
+    contents.forEach(item => {
+        if (fs.lstatSync(path.resolve(directory, item)).isDirectory())
+            { directories.push(item); }
+        else
+            { files.push(item); }
+    });
+
+    directories.sort();
+    files.sort();
 
     return { directories, files}
 }
