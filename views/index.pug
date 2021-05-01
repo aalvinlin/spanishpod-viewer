@@ -5,7 +5,8 @@ block content
 
     .directories
         each directory in directories
-            p= directory
+            p
+                a(href=`${clientPath}/${directory}`) #{directory}
     
     h2 Files
     .files

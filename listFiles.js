@@ -1,16 +1,15 @@
-const directory = './files/';
 const path = require('path');
 const fs = require('fs');
 
-const getFilesAndDirectories = (directory) => {
+const getFilesAndDirectories = (pathToDirectory) => {
 
-    const contents = fs.readdirSync(directory);
+    const contents = fs.readdirSync(pathToDirectory);
 
     const directories = [];
     const files = [];
 
     contents.forEach(item => {
-        if (fs.lstatSync(path.resolve(directory, item)).isDirectory())
+        if (fs.lstatSync(path.resolve(pathToDirectory, item)).isDirectory())
             { directories.push(item); }
         else
             { files.push(item); }
@@ -19,7 +18,10 @@ const getFilesAndDirectories = (directory) => {
     directories.sort();
     files.sort();
 
-    return { directories, files}
+    // remove "./files" from beginning of path for client use
+    const clientPath = pathToDirectory.slice("./files".length);
+
+    return { directories, files, clientPath }
 }
 
 module.exports = getFilesAndDirectories;

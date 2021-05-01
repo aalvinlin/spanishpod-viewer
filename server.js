@@ -33,7 +33,9 @@ server.use("/", (req, res) => {
 // handle errors
 server.use((err, req, res, next) => {
 
-    res.status(500).send("error:", err);
+    console.error(err);
+
+    res.status(500).send(err);
 })
 
 module.exports = server;
