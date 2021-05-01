@@ -9,11 +9,31 @@ server.set("view engine", "pug");
 
 server.use(express.static("public"));
 
+server.use("/:level/:lesson", (req, res) => {
+
+    const level = req.params.level;
+    const lesson = req.params.lesson;
+    
+    res.status(200).render("index", getFilesAndDirectories(`./files/${level}/${lesson}`));
+})
+
+server.use("/:level", (req, res) => {
+
+    const level = req.params.level;
+
+    res.status(200).render("index", getFilesAndDirectories(`./files/${level}`));
+})
+
+
 server.use("/", (req, res) => {
 
-    let directoriesAndFiles = getFilesAndDirectories("./files");
+    res.status(200).render("index", getFilesAndDirectories(`./files`));
+})
 
-    res.status(200).render("index", directoriesAndFiles);
+// handle errors
+server.use((err, req, res, next) => {
+
+    res.status(500).send("error:", err);
 })
 
 module.exports = server;

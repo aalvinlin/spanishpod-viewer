@@ -10,3 +10,12 @@
 
     text-align: center;
 }
+
+.directories p, .files p {
+    line-height: 2rem;
+    text-align: left;
+
+    width: 500px;
+
+    margin: 0 auto;
+}
