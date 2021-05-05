@@ -51,7 +51,7 @@ const getFilesAndDirectories = (pathToDirectory) => {
     // remove "./files" from beginning of path for client use
     const clientPath = pathToDirectory.slice("./files".length);
 
-    return { directories, files, clientPath }
+    return { directories, lessons, files, clientPath }
 }
 
 module.exports = getFilesAndDirectories;

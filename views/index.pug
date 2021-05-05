@@ -7,7 +7,28 @@ block content
         each directory in directories
             p
                 a(href=`${clientPath}/${directory}`) #{directory}
-    
+
+    if lessons
+        h2 Lessons
+        .lessons
+
+            //- create a heading showing the lesson abbreviation (first part of filename)
+            //- there should only be one unless there are misplaced, uncategorized badly-named files
+            each lessonData, lessonAbbreviation in lessons
+                h3= lessonAbbreviation
+
+                //- go through the array of files pertaining to each lesson
+                each lessonContents, lessonNumber in lessonData
+
+                    //- skip nonexistant lesson at index 0
+                    if lessonNumber > 0
+                        h4= lessonNumber
+
+                    //- output each file for the lesson
+                    if lessonContents
+                        each lessonMedia in lessonContents
+                            p= lessonMedia
+
     h2 Files
     .files
         each file in files
