@@ -17,7 +17,9 @@ const getFilesAndDirectories = (pathToDirectory) => {
         else
             {
                 // get parts of filename
-                const [lessonCode, seasonAndLessonNumber, itemType] = fileName.split("_");
+                const [name, extension] = filename.split(".");
+
+                const [lessonCode, seasonAndLessonNumber, itemType] = name.split("_");
 
                 // if the file is part of a lesson, process it
                 if (seasonAndLessonNumber)
