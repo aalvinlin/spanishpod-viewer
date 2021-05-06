@@ -10,24 +10,32 @@ block content
 
     if lessons
         h2 Lessons
+
         .lessons
+       
+            table
+                tr
+                    th #
+                    th Lesson
+                    th PDF
+                    th Other files
 
-            //- create a heading showing the lesson abbreviation (first part of filename)
-            //- there should only be one unless there are misplaced, uncategorized badly-named files
-            each lessonData, lessonAbbreviation in lessons
-                h3= lessonAbbreviation
+                //- create a heading showing the lesson abbreviation (first part of filename)
+                //- there should only be one unless there are misplaced, uncategorized badly-named files
+                each lessonData, lessonAbbreviation in lessons
 
-                //- go through the array of files pertaining to each lesson
-                each lessonContents, lessonNumber in lessonData
+                    //- go through the array of files pertaining to each lesson
+                    each lessonContents, lessonNumber in lessonData
 
-                    //- skip nonexistant lesson at index 0
-                    if lessonNumber > 0
-                        h4= lessonNumber
+                        //- skip nonexistant lesson at index 0
+                        if lessonNumber > 0
+                            tr
+                                td= lessonNumber
 
-                    //- output each file for the lesson
-                    if lessonContents
-                        each lessonMedia in lessonContents
-                            p= lessonMedia
+                                //- output each file for the lesson
+                                if lessonContents
+                                    each lessonMedia in lessonContents
+                                        td= lessonMedia
 
     h2 Files
     .files
