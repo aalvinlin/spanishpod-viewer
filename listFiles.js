@@ -31,9 +31,27 @@ const getFilesAndDirectories = (pathToDirectory) => {
                         // get lesson number from second part of filename
                         const lessonNumber = parseInt(seasonAndLessonNumber.slice(3));
 
-                        // create array for lesson number if it doesn't exist yet
+                        // create object for lesson number if it doesn't exist yet
                         if (!lessons[lessonCode][lessonNumber])
-                            { lessons[lessonCode][lessonNumber] = []; }
+                            { lessons[lessonCode][lessonNumber] = {}; }
+
+                        // determine type of lesson media
+                        if (extension === "mp3" && !itemType) // lesson audio
+                            {
+                                lessons[lessonCode][lessonNumber]["lesson_audio"] = filename;
+                            }
+                        else if (extension === "pdf" && !itemType) // lesson notes
+                            {
+                                lessons[lessonCode][lessonNumber]["lesson_notes"] = filename;
+                            }
+                        else
+                            {
+                                // create array for misc. lesson files if it doesn't exist yet
+                                if (!lessons[lessonCode][lessonNumber]["misc"])
+                                    { lessons[lessonCode][lessonNumber]["misc"] = []; }
+                                
+                                lessons[lessonCode][lessonNumber]["misc"].push(filename);
+                            }
 
                         // add filename to array for this lesson number
                         lessons[lessonCode][lessonNumber].push(fileName);
