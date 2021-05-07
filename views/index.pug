@@ -34,8 +34,20 @@ block content
 
                                 //- output each file for the lesson
                                 if lessonContents
-                                    each lessonMedia in lessonContents
-                                        td= lessonMedia
+
+                                    if lessonContents["lesson_audio"]
+                                        td= lessonContents["lesson_audio"]
+                                    else
+                                        td N/A
+
+                                    if lessonContents["lesson_notes"]
+                                        td= lessonContents["lesson_notes"]
+                                    else
+                                        td N/A
+                                    
+                                    if lessonContents["misc"]
+                                        each media in lessonContents["misc"]
+                                            td= media
 
     h2 Files
     .files

@@ -17,7 +17,7 @@ const getFilesAndDirectories = (pathToDirectory) => {
         else
             {
                 // get parts of filename
-                const [name, extension] = filename.split(".");
+                const [name, extension] = fileName.split(".");
 
                 const [lessonCode, seasonAndLessonNumber, itemType] = name.split("_");
 
@@ -38,11 +38,11 @@ const getFilesAndDirectories = (pathToDirectory) => {
                         // determine type of lesson media
                         if (extension === "mp3" && !itemType) // lesson audio
                             {
-                                lessons[lessonCode][lessonNumber]["lesson_audio"] = filename;
+                                lessons[lessonCode][lessonNumber]["lesson_audio"] = fileName;
                             }
                         else if (extension === "pdf" && !itemType) // lesson notes
                             {
-                                lessons[lessonCode][lessonNumber]["lesson_notes"] = filename;
+                                lessons[lessonCode][lessonNumber]["lesson_notes"] = fileName;
                             }
                         else
                             {
@@ -50,11 +50,8 @@ const getFilesAndDirectories = (pathToDirectory) => {
                                 if (!lessons[lessonCode][lessonNumber]["misc"])
                                     { lessons[lessonCode][lessonNumber]["misc"] = []; }
                                 
-                                lessons[lessonCode][lessonNumber]["misc"].push(filename);
+                                lessons[lessonCode][lessonNumber]["misc"].push(fileName);
                             }
-
-                        // add filename to array for this lesson number
-                        lessons[lessonCode][lessonNumber].push(fileName);
                     }
                 
                 // file is part of an unknown lesson or not part of a lesson
