@@ -19,3 +19,38 @@
 
     margin: 0 auto;
 }
+
+table {
+    margin: 0 auto;
+}
+
+audio, video {
+    display: block;
+    margin: 0 auto;
+}
+
+audio {
+    width: 80vw;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    padding: 0 1rem;
+    line-height: 2rem;
+    background-color: #CCCCCC;
+}
+
+tr:nth-child(even) {
+    background-color: #EEEEEE;
+}
+
+td {
+    padding: 0.25rem 0;
+}
+
+td img {
+    cursor: pointer;
+}
