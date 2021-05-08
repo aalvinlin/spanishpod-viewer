@@ -1,14 +1,15 @@
 extends layout.pug 
 block content 
 
-    h2 Levels 
+    if directories.length > 0
+        h2 Levels 
 
-    .directories
-        each directory in directories
-            p
-                a(href=`${clientPath}/${directory}`) #{directory}
+        .directories
+            each directory in directories
+                p
+                    a(href=`${clientPath}/${directory}`) #{directory}
 
-    if lessons
+    if Object.keys(lessons).length > 0
         h2 Lessons
 
         .mediaPlayer
@@ -77,7 +78,9 @@ block content
                                             td
                                                 img(src="/media.png", title=`${lessonContents["misc"]}`, id=`${lessonContents["misc"]}`)
 
-    h2 Files
-    .files
-        each file in files
-            div= file
+    if files.length > 0
+
+        h2 Files
+        .files
+            each file in files
+                div= file
