@@ -11,6 +11,16 @@ block content
     if lessons
         h2 Lessons
 
+        .mediaPlayer
+
+            p#currentlyPlaying No file loaded
+
+            audio#audioPlayer(controls)
+                source#audioFile(src="", type="")
+
+            video#videoPlayer
+                source#videoFile(src="", type="")
+
         .lessons
        
             table

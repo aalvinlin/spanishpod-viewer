@@ -8,6 +8,7 @@ server.use(express.json());
 server.set("view engine", "pug");
 
 server.use(express.static("public"));
+server.use(express.static("files"));
 
 server.use("/:level/:lesson", (req, res) => {
 
