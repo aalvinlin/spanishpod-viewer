@@ -44,6 +44,14 @@ const getFilesAndDirectories = (pathToDirectory) => {
                             {
                                 lessons[lessonCode][lessonNumber]["lesson_notes"] = fileName;
                             }
+                        else if (itemType === "dialog") // dialogue track
+                            {
+                                lessons[lessonCode][lessonNumber]["dialog"] = fileName;
+                            }
+                        else if (itemType === "review") // reviewue track
+                            {
+                                lessons[lessonCode][lessonNumber]["review"] = fileName;
+                            }
                         else
                             {
                                 // create array for misc. lesson files if it doesn't exist yet

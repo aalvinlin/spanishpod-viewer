@@ -18,6 +18,8 @@ block content
                     th #
                     th Lesson
                     th PDF
+                    th Dialogue
+                    th Review
                     th Other files
 
                 //- create a heading showing the lesson abbreviation (first part of filename)
@@ -42,6 +44,16 @@ block content
 
                                     if lessonContents["lesson_notes"]
                                         td= lessonContents["lesson_notes"]
+                                    else
+                                        td N/A
+
+                                    if lessonContents["dialog"]
+                                        td= lessonContents["dialog"]
+                                    else
+                                        td N/A
+
+                                    if lessonContents["review"]
+                                        td= lessonContents["review"]
                                     else
                                         td N/A
                                     
