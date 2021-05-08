@@ -38,28 +38,34 @@ block content
                                 if lessonContents
 
                                     if lessonContents["lesson_audio"]
-                                        td= lessonContents["lesson_audio"]
+                                        td
+                                            img(src="/media.png", title=`${lessonContents["lesson_audio"]}`, id=`${lessonContents["lesson_audio"]}`)
                                     else
                                         td N/A
 
                                     if lessonContents["lesson_notes"]
-                                        td= lessonContents["lesson_notes"]
+                                        td
+                                            a(href=`${clientPath}/${lessonContents["lesson_notes"]}`, target="_blank")
+                                                img(src="/pdf.png", title=`${lessonContents["lesson_notes"]}`, id=`${lessonContents["lesson_notes"]}`)
                                     else
                                         td N/A
 
                                     if lessonContents["dialog"]
-                                        td= lessonContents["dialog"]
+                                        td
+                                            img(src="/media.png", title=`${lessonContents["dialog"]}`, id=`${lessonContents["dialog"]}`)
                                     else
                                         td N/A
 
                                     if lessonContents["review"]
-                                        td= lessonContents["review"]
+                                        td
+                                            img(src="/media.png", title=`${lessonContents["review"]}`, id=`${lessonContents["review"]}`)
                                     else
                                         td N/A
                                     
                                     if lessonContents["misc"]
                                         each media in lessonContents["misc"]
-                                            td= media
+                                            td
+                                                img(src="/media.png", title=`${lessonContents["misc"]}`, id=`${lessonContents["misc"]}`)
 
     h2 Files
     .files
