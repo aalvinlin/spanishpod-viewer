@@ -40,6 +40,10 @@ const getFilesAndDirectories = (pathToDirectory) => {
                             {
                                 lessons[lessonCode][lessonNumber]["lesson_audio"] = fileName;
                             }
+                        else if (extension === "m4v") // lesson video
+                            {
+                                lessons[lessonCode][lessonNumber]["lesson_video"] = fileName;
+                            }
                         else if (extension === "pdf" && !itemType) // lesson notes
                             {
                                 lessons[lessonCode][lessonNumber]["lesson_notes"] = fileName;

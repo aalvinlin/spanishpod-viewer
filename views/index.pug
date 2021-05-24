@@ -51,6 +51,9 @@ block content
                                     if lessonContents["lesson_audio"]
                                         td
                                             img(src="/media.png", title=`${lessonContents["lesson_audio"]}`, id=`${lessonContents["lesson_audio"]}`)
+                                    else if lessonContents["lesson_video"]
+                                        td
+                                            img(src="/media.png", title=`${lessonContents["lesson_video"]}`, id=`${lessonContents["lesson_video"]}`)
                                     else
                                         td N/A
 
